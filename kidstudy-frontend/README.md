@@ -12,3 +12,17 @@ Next week:
 
 ## API Base (for later)
 Create `.env` with:
+
+
+# KidStudy Frontend – Week 4 Progress
+
+This week:
+- React project created using Vite
+- Added a working Home page with topic input
+- Connected frontend to backend `/api/prompt` endpoint
+- Displayed generated flashcards on the page
+
+Next week:
+- Improve UI layout with basic styling
+- Begin building the Flashcards and Quiz pages
+

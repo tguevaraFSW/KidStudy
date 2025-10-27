@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
 
-app = FastAPI(title="KidStudy API", version="0.2.0")
+app = FastAPI(title="KidStudy API", version="0.3.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,23 +27,14 @@ def health():
 
 @app.post("/api/prompt", response_model=List[Flashcard])
 def generate_flashcards(payload: PromptRequest):
-    """Generate simple example flashcards based on a topic."""
     if not payload.topic:
         raise HTTPException(status_code=400, detail="Topic required")
-
     topic = payload.topic
     answers = [
         f"{topic} helps students understand key ideas.",
-        f"{topic} can be explored using examples and discussions.",
-        f"Learning about {topic} improves understanding in science and reading.",
-        f"{topic} encourages curiosity and critical thinking.",
-        f"Teachers can use {topic} to make lessons more interactive."
+        f"{topic} can be explored through real-world examples.",
+        f"Learning about {topic} encourages curiosity and creativity.",
+        f"{topic} supports science and literacy development.",
+        f"{topic} helps students connect classroom learning to daily life.",
     ]
-
-    return [
-        {"front_text": f"What is {topic}?", "back_text": answers[0]},
-        {"front_text": f"Why is {topic} important?", "back_text": answers[1]},
-        {"front_text": f"How can we study {topic}?", "back_text": answers[2]},
-        {"front_text": f"What do we learn from {topic}?", "back_text": answers[3]},
-        {"front_text": f"How can {topic} be used in class?", "back_text": answers[4]},
-    ]
+    return [{"front_text": f"Q{i+1}: {topic}", "back_text": a} for i, a in enumerate(answers)]

@@ -26,3 +26,16 @@ Next week:
 - Improve UI layout with basic styling
 - Begin building the Flashcards and Quiz pages
 
+# KidStudy Frontend – Week 5 Progress
+
+This week:
+- Integrated TailwindCSS for styling
+- Created a Flashcards page with flip-card interaction
+- Improved overall layout and navigation
+
+Next week:
+- Add Quiz page
+- Begin backend database connection with SQLAlchemy
+- Enhance responsiveness for mobile users
+
+

@@ -1,15 +1,18 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Flashcards from "./pages/Flashcards"; // new import
 
-function App() {
+function Home() {
   const [topic, setTopic] = useState("");
   const [cards, setCards] = useState([]);
 
   const handleGenerate = async () => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE}/api/prompt`, {
-        topic,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_BASE}/api/prompt`,
+        { topic }
+      );
       setCards(res.data);
     } catch (error) {
       console.error("Error generating flashcards:", error);
@@ -40,6 +43,26 @@ function App() {
         ))}
       </ul>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      {/* Simple navigation bar */}
+      <nav className="p-4 bg-blue-600 text-white flex gap-4">
+        <Link to="/">Home</Link>
+        <Link to="/flashcards">Flashcards</Link>
+      </nav>
+
+      {/* Page routing */}
+      <div className="p-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/flashcards" element={<Flashcards />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

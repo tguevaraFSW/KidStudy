@@ -38,4 +38,17 @@ Next week:
 - Begin backend database connection with SQLAlchemy
 - Enhance responsiveness for mobile users
 
+# KidStudy Frontend – Week 6 Progress
+
+This week:
+- Added Quiz page structure
+- Improved Flashcards page styling and usability
+- Added navigation links for Quiz page
+- Prepared for database integration on backend
+
+Next week:
+- Connect Quiz page to live data from backend
+- Implement basic scoring persistence
+- Begin testing with sample user input
+
 

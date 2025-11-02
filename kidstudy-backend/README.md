@@ -13,3 +13,11 @@ python -m venv .venv
 .\.venv\Scripts\Activate   # Windows
 pip install -r requirements.txt
 uvicorn app.main:app --reload
+
+
+# KidStudy Backend Updates
+
+This week's progress:
+- Ollama integrated
+-saves last set generated for quizzes
+-generates quizzes for flipQuiz and MCQuiz
